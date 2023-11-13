@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title> Vida Saludable</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="diseno.css">
+
+
+</head>
+<body bgcolor="">
+
+<label> Valor 1</label> <input type="number" name="" id="Valor 1" step="0.001" oninput="calcular()"> <br><br>
+<label> Valor 2</label> <input type="number" name="" id="Valor 2" step="0.001" oninput="calcular()"> <br><br>
+<label> totales</label> <input type="number" name="" id="totales" step="0.001"> <br><br>
+</body>
+
+<script type="text/javascript">
+
+	function calcular () {
+		try
+	{
+
+	var a = parseFloat(document.getElementById("Valor 1").value) || 0,
+
+	b = parseFloat(document.getElementById("Valor 2").value) || 0;
+
+	document.getElementById("totales").value = a * b; 
+} catch (e) {}
+}
+</script>
+</script>
+</html>

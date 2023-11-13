@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>  tabla html editable</title>
+</head>
+<body>
+	<table border="1">
+		<thead style="width: 200px;">
+		<tr>
+			<th>Productos</th>
+			<th>Precio</th>
+			<th>Unidades</th>
+			<th>Unidades 2</th>
+			<th>Categoria</th> 
+		</tr>			
+		</thead>
+		<tbody id="tablas">
+			<tr>
+				<td>Gaseosa Inka kola de 3 litros</td>
+			<td>8.50</td>
+			<td><input type="text" name="" id="txtC1" placeholder="unidad.."></td>
+			<td><input type="text" name="" id="txtC2" placeholder="unidad.."></td>
+				<td>
+					<select style="width: 180px;" id="combos"><option>gaseosas</option><option>galletas</option></select>
+				</td>
+			</tr>
+			<tr>
+					<td>Galleta soda</td>
+			<td>0.50</td>
+			<td><input type="text" name="" id="txtC1" placeholder="unidad.."></td>
+			<td><input type="text" name="" id="txtC2" placeholder="unidad.."></td>
+			<td>
+				<select style="width: 180px;" id="combos"><option>gaseosas</option><option>galletas</option></select>
+			</td>
+		</tr>
+		<tr>
+		<td>Gaseosa fanta de 2 litros</td>
+		<td>2.50</td>
+			<td><input type="text" name="" id="txtC1" placeholder="unidad.."></td>
+			<td><input type="text" name="" id="txtC2" placeholder="unidad.."></td>
+			<td>
+				<select style="width: 180px;" id="combos"><option>gaseosas</option><option>galletas</option></select>
+			</td>
+		</tr>
+		</tbody>	
+		<tfoot>
+
+<!--Aqui ira el boton no necesariamente un submit-->
+<button id="datos" onclick="check()">Saldar</button>
+		</tfoot>
+		<h1 id="tot"></h1>
+	</table>
+</body>
+</html>
+<script>
+//empezemos a trabajar aquí
+
+function check(){
+
+	$(document).ready(function(){
+	var importe=0.00;var total=0.00;
+$('#datos').click(function(){
+$('#tablas tr').each(function(){
+var productos=$(this).find('td').eq(0).text();
+var precio=$(this).find('td').eq(1).text();
+var unidades=$(this).find('#txtC1').eq(0).text();
+var unidades2=$(this).find('#txtC2').val();
+var categorias=$(this).find('select').val();
+importe=parseFloat(precio)*unidades;
+total+=importe;
+alert("Producto :"+productos+"\nPrecio :  "+precio+"\nCantidad:"+unidades+"\nunidades 2 : "+unidades2+
+	"\nCategoria : "+categorias);
+	$('#tot').html(total);
+	});
+});
+
+	$('#tablas').on('keypress','#txtC1',function(){
+		alert("hola");
+	});
+
+});
+</script>
